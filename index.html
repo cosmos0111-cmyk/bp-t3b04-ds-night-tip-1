@@ -1,210 +1,459 @@
-
 <!DOCTYPE html>
 <html lang="ko">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>영화 미학 지식 저널 및 아카이브</title>
+  <title>당산 클래식 영화 비평 & 무대 조형학 아카이브 — CINEMA.DS</title>
+  <meta name="description" content="당산동의 시네필 아틀리에들을 중심으로 부활하는 클래식 영화 미장센 기하학, 1점 투시 대칭 구도의 심리 분석, 그리고 고전 음향 워터폰의 불협화음 미학을 깊이 있게 기록하는 보존 저널입니다.">
+  <meta name="keywords" content="당산 영화, 미장센, 대칭 구도, 스탠리 큐브릭, 아날로그 조형학">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo:wght@400;700;800&family=Outfit:wght@300;400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;1,400&family=Noto+Serif+KR:wght@300;700&display=swap" rel="stylesheet">
   <style>
     :root {
-      --cream-bg: #fdfdfa;
-      --charcoal-fg: #1c1a17;
-      --gold-accent: #c29d6d;
-      --hairline-color: #e6e3db;
-      --serif-font: 'Nanum Myeongjo', serif;
-      --sans-font: 'Outfit', sans-serif;
+      --bg-color: #0f1013;
+      --fg-color: #e2e2d9;
+      --accent-color: #d4af37;
+      --card-bg: #15171d;
+      --border-color: rgba(212, 175, 55, 0.25);
+      --font-serif: 'Noto Serif KR', serif;
+      --font-display: 'Playfair Display', serif;
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body {
-      background-color: var(--cream-bg);
-      color: var(--charcoal-fg);
-      font-family: var(--sans-font);
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-serif);
       line-height: 1.8;
-      padding: 0 40px;
+      padding: 40px;
     }
     .wrapper {
-      max-width: 960px;
+      max-width: 1000px;
       margin: 0 auto;
-      padding: 80px 0;
     }
     header {
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 32px;
-      margin-bottom: 60px;
       display: flex;
       justify-content: space-between;
-      align-items: baseline;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
     }
     .brand {
-      font-family: var(--serif-font);
-      font-size: 1.5rem;
-      font-weight: 800;
-      color: var(--charcoal-fg);
-      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
       letter-spacing: 0.05em;
+      color: var(--accent-color);
+      text-decoration: none;
     }
     nav { display: flex; gap: 32px; }
     nav a {
-      color: var(--charcoal-fg);
+      color: #9c9c96;
       text-decoration: none;
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      transition: color 0.3s ease;
-    }
-    nav a:hover { color: var(--gold-accent); }
-    main { padding-bottom: 80px; }
-    .kicker {
-      font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
       letter-spacing: 0.2em;
-      color: var(--gold-accent);
+    }
+    nav a:hover { color: var(--accent-color); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
       margin-bottom: 24px;
     }
     h1 {
-      font-family: var(--serif-font);
-      font-size: 2.5rem;
+      font-size: 3rem;
       font-weight: 700;
-      line-height: 1.35;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 48px;
       letter-spacing: -0.02em;
-      color: var(--charcoal-fg);
-      margin-bottom: 40px;
     }
-    .story-body {
-      font-family: var(--serif-font);
-      font-size: 1.15rem;
-      color: var(--charcoal-fg);
-      font-weight: 400;
+    .intro-text {
+      font-size: 1.2rem;
+      color: #ceced6;
+      font-weight: 300;
+      max-width: 800px;
+      margin-bottom: 80px;
       text-align: justify;
-      margin-bottom: 60px;
     }
-    .story-body p { margin-bottom: 24px; text-indent: 12px; }
-    .juice-link {
-      color: var(--gold-accent);
-      text-decoration: none;
-      border-bottom: 1px solid var(--gold-accent);
-      font-weight: 700;
-      transition: all 0.3s ease;
-    }
-    .juice-link:hover {
-      color: var(--charcoal-fg);
-      border-bottom-color: var(--charcoal-fg);
-    }
-    .editorials {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 60px;
-    }
-    .editorial-label {
-      font-size: 0.8rem;
-      font-weight: 600;
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      color: var(--gold-accent);
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      letter-spacing: 0.25em;
       margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
     }
-    .editorial-flow {
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+    }
+    .essay-card h3 {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: #9c9c96;
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
       display: flex;
       flex-direction: column;
-      gap: 40px;
+      gap: 24px;
     }
-    .editorial-block {
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
       text-decoration: none;
-      color: var(--charcoal-fg);
-      display: block;
-      border-bottom: 1px solid var(--hairline-color);
-      padding-bottom: 30px;
     }
-    .editorial-block:hover h3 { color: var(--gold-accent); }
-    .editorial-block h3 {
-      font-family: var(--serif-font);
-      font-size: 1.4rem;
-      font-weight: 700;
-      margin-bottom: 12px;
-      transition: color 0.3s ease;
+    .pbn-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
     }
-    .editorial-block p {
-      font-size: 0.95rem;
-      color: #555555;
-      font-weight: 300;
-    }
-    footer {
-      border-top: 1px solid var(--hairline-color);
-      padding-top: 40px;
+    .pbn-meta {
       display: flex;
       justify-content: space-between;
-      font-size: 0.75rem;
-      letter-spacing: 0.1em;
-      color: #888888;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      font-weight: 700;
     }
-    footer a { color: #888888; text-decoration: none; }
-    footer a:hover { color: var(--gold-accent); }
+    .pbn-meta span {
+      border: 1px solid var(--accent-color);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #ceced6;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: #555552;
+    }
+    footer a { color: #555552; text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-color); }
+    
     @media(max-width: 768px) {
-      header { flex-direction: column; gap: 16px; }
-      h1 { font-size: 2rem; }
-      .story-body { font-size: 1.05rem; }
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
     }
   </style>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "CINEMA.DS",
+    "url": "https://ds-night.pages.dev",
+    "description": "당산 영화 미학 무대 조형학 및 시각 전시 아카이브 연구 저널"
+  }
+  </script>
 </head>
 <body>
-  <div class="container">
+  <div class="wrapper">
     <header>
-      <a href="/" class="brand">EDITORIAL.KR</a>
-      <nav><a href="index.html">HOME</a> | <a href="sitemap.xml">SITEMAP</a></nav>
+      <a href="index.html" class="brand">CINEMA.DS</a>
+      <nav>
+        <a href="index.html">CINEMA_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
     </header>
+    
     <main>
-      <div class="kicker">BOUTIQUE KR / SELECTION ACCENT</div>
-      <h1>영화 미학 지식 저널 및 아카이브</h1>
-      <div class="story-body">
-        환영합니다. 본 블로그 공간은 세련되고 품격 있는 <strong>영화 미학</strong> 분야의 깊이 있는 전문 에세이와 실용 기술 논문을 공유하는 매니아 전용 아카이브 저널입니다. 아래의 최근 기사 목록을 통해 새로운 지식의 지평을 넓혀 보시기 바랍니다.
+      <div class="label">// CINEMATIC MIS-EN-SCENE ARCHIVE</div>
+      <h1>당산 클래식 영화 비평 & 무대 조형학 아카이브</h1>
+      
+      <div class="intro-text">
+        <p>본 아카이브는 당산동의 예술적 영화 독립 공간 비평가들을 기반으로, 고전 명작들의 기하학적 미장센 비례 이론, 스탠리 큐브릭 감독이 극단적으로 활용했던 1점 투시 대칭 구도의 심리적 억압 메커니즘, 그리고 서스펜스 영화의 긴장감을 극대화하는 금속성 특수 악기 워터폰의 음향 물리 미학을 심도 있게 아카이빙하고 학술적으로 고찰하는 저널입니다.</p>
+        <p>우리는 단순히 상업 영화의 시각 정보를 복사하는 것을 넘어, 프레임의 대칭 파괴와 시각 왜곡 기법이 인간의 무의식 속에 투사하는 공간 인지 변화를 탐구합니다. 아래의 정교하게 수록된 영화 비평 논문 자료와 실시간 당산 로컬 인사이더 피드를 감상해보십시오.</p>
       </div>
       
+      <div class="grid-section">
+        <div class="essay-card">
+          <h3>스탠리 큐브릭 감독의 기하학 구도: 1점 투시 수렴 대칭의 심리적 억압</h3>
+          <p>완벽주의적인 시네아스트 스탠리 큐브릭이 영화 '샤이닝'과 '스페이스 오디세이'에서 극단적으로 고수했던 화면 정중앙 1점 투시 수렴 대칭 구도. 이것은 관객의 시선을 정교한 중앙 기하학 프레임 내에 무자비하게 가두어 둠으로써, 거역할 수 없는 심리적 폐쇄 공포와 고도의 공간 억압 메커니즘을 유도하는 영화 미학적 하드웨어 설계입니다.</p>
+        </div>
+        <div class="essay-card">
+          <h3>고전 스릴러 서스펜스 음향: 특수 타악기 워터폰(Waterphone)의 금속 공진</h3>
+          <p>스크린 위의 고독과 공포를 조율하기 위해 전통적으로 널리 활용된 금속 타악기 워터폰의 기괴한 불협화음. 청동 실린더 내부에 수용된 물의 물리적 양에 따라 음색의 주파수 스펙트럼이 가파르게 진동하여, 인간의 원초적인 불안과 감각 신경망을 물리적으로 교란하는 광학적 공명 양식을 심도 있게 분석 조명합니다.</p>
+        </div>
+      </div>
       
-      <div class="editorials">
-        <div class="editorial-label">Recent Editorial Articles</div>
-        <div class="editorial-flow">
+      <div class="pbn-feed-section">
+        <div class="section-title">// RECENT GUEST FEED NETWORK (DANGSAN LOCAL TIPS)</div>
+        <div class="pbn-grid">
           
-        <a href="posts/normal-1.html" class="editorial-block">
-          <h3>안드레이 타르코프스키의 장시간 촬영(Long Take)과 조형적 침묵의 미학</h3>
-          <p>세계적인 영화 거장 안드레이 타르코프스키 감독이 고집했던 롱테이크 샷 기법은 단순히 기술적인 길이를 넘어 관객의 물리적 시간 감각을 정지시키고 인위적인 미장센 속 조형적 침묵을 체...</p>
-        </a>
-      
+          <a href="posts/review-001.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⭐ REVIEW</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>당산 유흥 꿀팁 찐속마음 — 실장 인사이더의 3개월 직접 검증 요금 대조 리뷰</h4>
+            <p>어이 bro! 당산역 이면도로 빌딩가 구석진 골목길에서 2차 술자리를 잡으려다 가짜 평점 블로그 리뷰에 낚여서 지갑 털릴까 봐 불안하지? 오늘은 10년 단골 상수의 룸 위생 살균 공조 필터 점검 노하우와 진짜 가성비 정찰 요금표를 백도어 털어내듯 속 시원히 까발려 준다.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/normal-2.html" class="editorial-block">
-          <h3>고전 공포영화 음향 효과 속 숨겨진 악기: 워터폰(Waterphone)의 금속성 불협화음</h3>
-          <p>스크린 위에 깃드는 기괴하고 날카로운 서스펜스를 조율할 때 필수로 채용되는 특수 타악기인 워터폰은 청동 실린더 내부에 차 있는 물의 양에 따라 공진 주파수가 극적으로 변하여 사람의...</p>
-        </a>
-      
+          <a href="posts/review-002.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⭐ REVIEW</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>당산 유흥 꿀팁과 엘든링 데이터마이닝에 숨겨진 히든 마진 가격의 비밀</h4>
+            <p>엘든링 클라이언트 더미 파일의 미사용 리소스 코드를 뜯어 보이지 않는 거대 전설의 퍼즐을 복원했을 때의 쾌감! 오늘은 그 데이터마이닝 해킹 로직을 적용해, 당산 일대 대표 업소들의 진짜 안주 구성비 요금 매트릭스를 냉철하게 폭로 대조해 본다.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/normal-3.html" class="editorial-block">
-          <h3>스탠리 큐브릭 감독의 대칭 구도: 1점 투시 도식(One-Point Perspective)이 주는 심리적 압박</h3>
-          <p>완벽주의적인 시네아스트 스탠리 큐브릭이 애용했던 화면 정중앙의 1점 투시 수렴 대칭 구도는 관객의 시선을 강제로 가두어 인공적인 폐쇄 공포와 거역할 수 없는 심리적 억압 효과를 자...</p>
-        </a>
-      
+          <a href="posts/guide-003.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>💡 GUIDE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>당산 비즈니스 모임 예약을 위한 주니어의 철통 예약 프로토콜 가이드</h4>
+            <p>처음으로 법인 바이어 접대나 중요한 부서 단체 예약을 책임지게 된 주니어 막내들의 바가지 차단 행동 강령. NSA 대규모 감시 프리즘에 우회 터널링 보안 쉘을 세팅하듯, 매장의 감춰진 비밀 마진 단가를 파악해 실장 지명 딜링으로 완벽한 피드백을 선점하는 팁.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/juice-1.html" class="editorial-block">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 구글 상위노출 대행 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
-      
+          <a href="posts/guide-004.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>💡 GUIDE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>당산 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑</h4>
+            <p>목요일 밤 and 주말 피크 타임에 대기 웨이팅을 제로로 날려버리는 스마트한 예약 동선 요령. 건물 1층 ATM 접근성 확보와 편리한 발렛 주차 상황 분석, 그리고 대리운전과 택시 기사가 1초 만에 잡히는 당산 대로변 코너 최적 교통 허브 동선 설계 지침.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
 
-        <a href="posts/juice-2.html" class="editorial-block">
-          <h3>시네필과 영화 예술 매니아들이 엄선 정리한 구글 상위노출 대행 상세 정보 리포트</h3>
-          <p>빛과 어둠의 정교한 시각 프레임과 기하학적 미장센의 깊은 울림을 공부하며 시각 예술의 안목을 키워가는 현대의 시네필분들이라면, 극장 밖 현실 세계에서 느끼는 여가의 만족도와 품격 ...</p>
-        </a>
-      
+          <a href="posts/compare-005.html" class="pbn-card">
+            <div class="pbn-meta">
+              <span>⚖️ COMPARE</span>
+              <time datetime="2026-05-27">2026-05-27</time>
+            </div>
+            <h4>당산 유흥 가성비 비교 매트릭스 — 진짜 코스 요금 및 위생 등급 대조 리포트</h4>
+            <p>포털의 가짜 별점 대행 광고에 눈탱이 맞지 않는 유일한 해답. 당산 배후 먹자골목 로컬 업소 10곳을 직접 샅샅이 잠입 조사하여 획득한 진짜 코스별 시간당 요금 단가 매트릭스와 마이크 필터 소독 청결 상태를 투명하게 공개 대조 정리한 고품격 폭로형 리포트.</p>
+            <div class="read-more">자세히 보기 →</div>
+          </a>
+
         </div>
       </div>
     </main>
-    <footer>
-      <div>&copy; 2026 EDITORIAL.KR. ALL RIGHTS RESERVED.</div>
+    
+    
+
+
+
+
+<!-- PBN Recent Posts Feed Section -->
+<section class="recent-posts-section" aria-label="최신 글 피드" style="padding:60px 20px;background:#f7fafc;border-top:1px solid #e2e8f0;border-bottom:1px solid #e2e8f0">
+  <div style="max-width:1100px;margin:0 auto">
+    <h3 style="font-size:1.5rem;font-weight:800;color:#1a202c;text-align:center;margin-bottom:32px;letter-spacing:-0.025em">📝 최신 관련 포스트</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:24px">
+      
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
       <div>
-        <a href="sitemap.xml">SITEMAP</a> | 
-        <a href="#">PRIVACY</a> | 
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⚖️ COMPARE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 유흥 가성비 비교 매트릭스 — 진짜 코스 요금 및 위생 등급 대조 리포트 — CINEMA.DS</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">REPORTS // MAY 27, 2026 당산 유흥 가성비 비교 매트릭스 — 진짜 코스 요금 및 위생 등급 대조 리포트 어이 bro, 당산역 일대 복잡하게 뒤엉킨 빌딩가 뒷골목에서 중요한 접대 자리를 성공적으로 세팅하고 내 피 같은 지갑 전선을 철통 방어하기 위해 좌</p>
+      </div>
+      <a href="posts/compare-005.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>💡 GUIDE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 비즈니스 모임 예약을 위한 주니어의 철통 예약 프로토콜 가이드 — CINEMA.DS</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">GUIDES // MAY 27, 2026 당산 비즈니스 모임 예약을 위한 주니어의 철통 예약 프로토콜 가이드 어이 bro! 회사에서 중요한 비즈니스 바이어 접대나 대규모 부서 단체 예약을 덜컥 떠맡게 된 주니어 막내들, 다들 쫄아서 손가락만 빨고 있지? 쾌적하게 쉴 수</p>
+      </div>
+      <a href="posts/guide-003.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>💡 GUIDE</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑 — CINEMA.DS</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">GUIDES // MAY 27, 2026 당산 골든아워 선점 요령 및 안전한 심야 대리 귀가 교통 허브 동선 매핑 어이 bro! 목요일 밤이나 금요일 늦은 밤, 회사 동료들이나 바이어 접대를 마치고 2차로 기분 좋게 룸을 선점하려는데 입구 앞 가득 들어찬 웨이팅 인파 </p>
+      </div>
+      <a href="posts/guide-004.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">시네필과 영화 예술 매니아들이 엄선 정리한 구글 상위노출 대행 상세 정보 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">시네필과 영화 예술 매니아들이 엄선 정리한 구글 상위노출 대행 상세 정보 리포트</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/juice-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-10">2026-06-10</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 유흥 꿀팁에 관한 흔한 오해, 직접 확인해보니 달랐던 점</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">제목: 창작한 제목 | "당산 유흥 꿀팁: 단골 손님의 숨겨진 원가 비밀" ### 포스트 메타정보포스트 기획 테마: 당산 유흥 꿀팁에 관한 흔한 오해, 직접 확인해보니 달랐던 점 백링크 지시: 본문 내러티브 속에서 다음 링크를 자연스러운 발견으로 녹여라: 작성자의 추천</p>
+      </div>
+      <a href="posts/myth-001-73yhgo.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">안드레이 타르코프스키의 장시간 촬영(Long Take)과 조형적 침묵의 미학</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-1.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">고전 공포영화 음향 효과 속 숨겨진 악기: 워터폰(Waterphone)의 금속성 불협화음</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-2.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-24">2026-05-24</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">스탠리 큐브릭 감독의 대칭 구도: 1점 투시 도식(One-Point Perspective)이 주는 심리적 압박</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis"></p>
+      </div>
+      <a href="posts/normal-3.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-06-05">2026-06-05</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 유흥 꿀팁, 형님만 아는 2023년 홍대 상권 비밀 이야기</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">당산 유흥 꿀팁을 찾는 사람들에게, 홍대 상권의 변화는 어떤 의미일까? 2023년을 되돌아보면, 많은 업소들이 폐업하고 새로운 곳들이 생겨났는데, 이 변화를 분석해 보면, 살아남은 업소들이 어떤 전략을 취했는지 알 수 있다. ## 홍대 상권의 변화홍대 상권은 항상 변화</p>
+      </div>
+      <a href="posts/review-001.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">당산 유흥 꿀팁과 엘든링 데이터마이닝에 숨겨진 히든 마진 가격의 비밀 — CINEMA.DS</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">REVIEWS // MAY 27, 2026 당산 유흥 꿀팁과 엘든링 데이터마이닝에 숨겨진 히든 마진 가격의 비밀 어이 bro! 전 세계 게이머들의 뇌리를 강타한 다크 판타지 명작 '엘든링(Elden Ring)'의 클라이언트 패키지 파일 속을 해커들이 데이터마이닝(Dat</p>
+      </div>
+      <a href="posts/review-002.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    <article class="recent-post-card" style="background:#ffffff;border-radius:16px;padding:24px;box-shadow:0 4px 20px rgba(0,0,0,0.04);border:1px solid #edf2f7;transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column;justify-content:space-between;min-height:220px" onmouseover="this.style.transform='translateY(-5px)';this.style.boxShadow='0 12px 24px rgba(0,0,0,0.08)'" onmouseout="this.style.transform='none';this.style.boxShadow='0 4px 20px rgba(0,0,0,0.04)'">
+      <div>
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px;font-size:0.8rem;color:#718096">
+          <span>⭐ REVIEW</span>
+          <time datetime="2026-05-27">2026-05-27</time>
+        </div>
+        <h4 style="font-size:1.1rem;font-weight:700;color:#1a202c;margin-bottom:8px;line-height:1.4">아, 홍대 폐업 썰 좀 풀어보자면… 권리금 2억 썰의 진실</h4>
+        <p style="font-size:0.875rem;color:#4a5568;line-height:1.6;margin-bottom:16px;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;text-overflow:ellipsis">야, 이거 뭐 검색하면 다 똑같은 소리만 나오드라? 뭐, 홍대 상권이 어떻고 저떻고… 내가 뭐 임대차 계약 좀 뜯어본 사람인데, 진짜 속사정은 좀 다른 얘기가 많아. 얼마 전에 권리금 2억 받고 싹 나간 가게 하나 있었거든? 겉보기엔 멀쩡했지. 1층에 딱, 유동인구 좀</p>
+      </div>
+      <a href="posts/t3link-006.html" style="align-self:flex-start;text-decoration:none;color:#3182ce;font-size:0.9rem;font-weight:600;transition:color 0.2s" onmouseover="this.style.color='#2b6cb0'" onmouseout="this.style.color='#3182ce'">자세히 보기 →</a>
+    </article>
+    </div>
+  </div>
+</section>
+<footer>
+      <div>&copy; 2026 CINEMA.DS. ALL RIGHTS RESERVED.</div>
+      <div>
+        <a href="sitemap.xml">SITEMAP</a>
+        <a href="#">PRIVACY POLICY</a>
         <a href="#">DISCLAIMER</a>
       </div>
     </footer>
