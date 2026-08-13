@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>글 목록 (3/3) · t3b04-ds-night-tip-1</title>
+  <meta name="description" content="t3b04-ds-night-tip-1에 올라온 글 목록입니다.">
+  <link rel="canonical" href="https://dangsan-night-hot.hardcoreroom.com/posts-3.html">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <style>
+    :root {
+      --bg-color: #0f1013;
+      --fg-color: #e2e2d9;
+      --accent-color: #d4af37;
+      --card-bg: #15171d;
+      --border-color: rgba(212, 175, 55, 0.25);
+      --font-serif: 'Noto Serif KR', serif;
+      --font-display: 'Playfair Display', serif;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg-color);
+      color: var(--fg-color);
+      font-family: var(--font-serif);
+      line-height: 1.8;
+      padding: 40px;
+    }
+    .wrapper {
+      max-width: 1000px;
+      margin: 0 auto;
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 80px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 32px;
+    }
+    .brand {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 700;
+      font-style: italic;
+      letter-spacing: 0.05em;
+      color: var(--accent-color);
+      text-decoration: none;
+    }
+    nav { display: flex; gap: 32px; }
+    nav a {
+      color: #9c9c96;
+      text-decoration: none;
+      font-family: var(--font-display);
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+    }
+    nav a:hover { color: var(--accent-color); }
+    
+    main { margin-bottom: 100px; }
+    .label {
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1.25;
+      color: #ffffff;
+      margin-bottom: 48px;
+      letter-spacing: -0.02em;
+    }
+    .intro-text {
+      font-size: 1.2rem;
+      color: #ceced6;
+      font-weight: 300;
+      max-width: 800px;
+      margin-bottom: 80px;
+      text-align: justify;
+    }
+    .intro-text p { margin-bottom: 28px; }
+    
+    .section-title {
+      font-family: var(--font-display);
+      font-size: 1.1rem;
+      color: var(--accent-color);
+      letter-spacing: 0.25em;
+      margin-bottom: 40px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 12px;
+      text-transform: uppercase;
+    }
+    .grid-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      margin-bottom: 100px;
+    }
+    @media(max-width: 768px) {
+      .grid-section { grid-template-columns: 1fr; }
+    }
+    .essay-card {
+      border: 1px solid var(--border-color);
+      padding: 30px;
+      background-color: var(--card-bg);
+    }
+    .essay-card h3 {
+      font-size: 1.4rem;
+      color: #ffffff;
+      margin-bottom: 16px;
+      line-height: 1.4;
+    }
+    .essay-card p {
+      font-size: 0.95rem;
+      color: #9c9c96;
+      text-align: justify;
+    }
+
+    /* PBN Feeds */
+    .pbn-feed-section {
+      margin-top: 100px;
+    }
+    .pbn-grid {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+    }
+    .pbn-card {
+      background-color: var(--card-bg);
+      border: 1px solid var(--border-color);
+      padding: 36px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 250px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+    .pbn-card:hover {
+      border-color: var(--accent-color);
+      transform: translateY(-2px);
+    }
+    .pbn-meta {
+      display: flex;
+      justify-content: space-between;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: var(--accent-color);
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+    .pbn-meta span {
+      border: 1px solid var(--accent-color);
+      padding: 2px 10px;
+    }
+    .pbn-card h4 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #ffffff;
+      margin-bottom: 14px;
+      line-height: 1.4;
+    }
+    .pbn-card p {
+      font-size: 0.95rem;
+      color: #ceced6;
+      line-height: 1.7;
+      margin-bottom: 24px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+    .read-more {
+      align-self: flex-start;
+      color: var(--accent-color);
+      font-size: 0.9rem;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.05em;
+    }
+    
+    footer {
+      border-top: 1px solid var(--border-color);
+      padding-top: 48px;
+      margin-top: 100px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-family: var(--font-display);
+      font-size: 0.8rem;
+      color: #555552;
+    }
+    footer a { color: #555552; text-decoration: none; margin-left: 20px; }
+    footer a:hover { color: var(--accent-color); }
+    
+    @media(max-width: 768px) {
+      header { flex-direction: column; gap: 24px; align-items: flex-start; }
+      h1 { font-size: 2.2rem; }
+      footer { flex-direction: column; gap: 20px; text-align: center; }
+    }
+  </style>
+  <meta property="og:title" content="글 목록 (3/3) · t3b04-ds-night-tip-1">
+  <meta property="og:description" content="t3b04-ds-night-tip-1에 올라온 글 목록입니다.">
+  <meta property="og:url" content="https://dangsan-night-hot.hardcoreroom.com/posts-3.html">
+  <meta property="og:type" content="website">
+  <meta name="twitter:card" content="summary">
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a href="index.html" class="brand">CINEMA.DS</a>
+      <nav>
+        <a href="index.html">CINEMA_NET</a>
+        <a href="sitemap.xml">SITEMAP</a>
+      </nav>
+    </header>
+    <main>
+      <h1>글 목록</h1>
+      <p>전체 44개 · 3/3 페이지</p>
+      <ul class="post-list">
+      <li class="post-item">
+        <a class="post-item__link" href="posts/normal-3.html">당산 유흥 꿀팁: 기본 상식과 예절 안내</a>
+        <p class="post-item__summary">유흥업소를 방문할 때 가장 중요한 것은 상대방에 대한 기본적인 예의와 존중입니다. 당산 일대의 유흥가에서는 다양한 형태의 문화와 서비스가 존재하지만, 방문 전 반드시 알아두어야 할 최소한의 규범이 </p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-001.html">당산 유흥 꿀팁, 형님만 아는 2023년 홍대 상권 비밀 이야기</a>
+        <p class="post-item__summary">당산 유흥 꿀팁을 찾는 사람들에게, 홍대 상권의 변화는 어떤 의미일까? 2023년을 되돌아보면, 많은 업소들이 폐업하고 새로운 곳들이 생겨났는데, 이 변화를 분석해 보면, 살아남은 업소들이 어떤 전</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/review-002.html">당산 유흥 꿀팁과 엘든링 데이터마이닝에 숨겨진 히든 마진 가격의 비밀</a>
+        <p class="post-item__summary">어이 bro! 전 세계 게이머들의 뇌리를 강타한 다크 판타지 명작 '엘든링(Elden Ring)'의 클라이언트 패키지 파일 속을 해커들이 데이터마이닝(Datamining) 기법으로 해킹해 냈을 때의</p>
+      </li>
+      <li class="post-item">
+        <a class="post-item__link" href="posts/t3link-006.html">아, 홍대 폐업 썰 좀 풀어보자면… 권리금 2억 썰의 진실</a>
+        <p class="post-item__summary">무슨 말이냐면, 그분도 처음엔 ‘이 정도면 되겠지’ 하고 시작했는데, 알고 보니 계약서 도장 찍기 전에 ‘보이지 않는 손’들이 좀 있었던 거지. 예를 들어, 바로 옆 건물에서 뭐 엄청 큰 프랜차이즈</p>
+      </li>
+      </ul>
+    <nav class="pager">
+      <a class="pager__link" href="posts.html">1</a>
+      <a class="pager__link" href="posts-2.html">2</a>
+      <span class="pager__current">3</span>
+    </nav>
+    </main>
+  </div>
+</body>
+</html>
